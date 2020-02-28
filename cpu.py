@@ -240,7 +240,8 @@ class CPU:
             self.reg[SP] += 1
 
     def pra(self):
-        print(chr(self.reg[self.operand_a]))
+        ascii = self.ram[self.reg[self.operand_a]]
+        print(chr(ascii), end='')
 
     def prn(self):
         print(self.reg[self.operand_a])
@@ -301,7 +302,7 @@ class CPU:
         elif op == "MUL":
             self.reg[reg_a] *= self.reg[reg_b]
         elif op == "NOT":
-            self.reg[reg_a] = ~self.reg[reg_a]
+            self.reg[reg_a] = ~self.reg[reg_a] & 255
         elif op == "OR":
             self.reg[reg_a] = self.reg[reg_a] | self.reg[reg_b]
         elif op == "SHL":
