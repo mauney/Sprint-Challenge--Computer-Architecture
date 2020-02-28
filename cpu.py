@@ -211,7 +211,7 @@ class CPU:
             self.pc += 2
 
     def ld(self):
-        self.reg[self.operand_a] = self.reg[self.operand_b]
+        self.reg[self.operand_a] = self.ram_read(self.reg[self.operand_b])
 
     def ldi(self):
         self.reg[self.operand_a] = self.operand_b
@@ -240,8 +240,7 @@ class CPU:
             self.reg[SP] += 1
 
     def pra(self):
-        ascii = self.ram[self.reg[self.operand_a]]
-        print(chr(ascii), end='')
+        print(chr(self.reg[self.operand_a]), end='')
 
     def prn(self):
         print(self.reg[self.operand_a])
