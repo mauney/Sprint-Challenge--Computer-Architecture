@@ -9,7 +9,7 @@ if len(sys.argv) != 2:
     print('Usage: ls8.py path/file_to_load')
     sys.exit(1)
 program = sys.argv[1]
-# program = 'ls8/examples/call.ls8'
+# program = 'sctest.ls8'
 
 cpu = CPU()
 
